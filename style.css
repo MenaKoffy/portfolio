@@ -718,3 +718,9 @@ body::after {
 @media(max-width:800px){.story-intro{flex-direction:column;align-items:flex-start}.story-index{justify-content:flex-start}.theatre-panels{grid-template-columns:1fr}.story-section{padding:75px 0 60px}}
 @media(max-width:700px){.story-heading h2{font-size:3.1rem}.story-placeholder{min-height:280px}.video-placeholder{min-height:330px}.story-next{gap:18px;align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.story-index a,.story-next a,.theatre-card{transition:none!important}}
+
+/* ===== 51-POSTER STORY ARCHIVE ===== */
+.poster-story .story-heading{position:relative}
+.poster-story .story-heading:after{content:"51 WORKS";position:absolute;right:0;top:8px;font-family:"Bebas Neue",sans-serif;letter-spacing:.14em;font-size:.85rem;color:#ffd34a;border:1px solid rgba(255,211,74,.35);padding:8px 12px}
+.poster-card{scroll-margin-top:90px}
+@media(max-width:700px){.poster-story .story-heading:after{position:static;display:inline-block;margin-top:14px}.poster-card .project-meta h3{font-size:1.25rem}}
