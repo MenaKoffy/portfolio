@@ -724,3 +724,35 @@ body::after {
 .poster-story .story-heading:after{content:"51 WORKS";position:absolute;right:0;top:8px;font-family:"Bebas Neue",sans-serif;letter-spacing:.14em;font-size:.85rem;color:#ffd34a;border:1px solid rgba(255,211,74,.35);padding:8px 12px}
 .poster-card{scroll-margin-top:90px}
 @media(max-width:700px){.poster-story .story-heading:after{position:static;display:inline-block;margin-top:14px}.poster-card .project-meta h3{font-size:1.25rem}}
+
+/* ===== COMIC BOOK STORY SHELF ===== */
+.comic-shelf-intro{margin-bottom:34px}
+.comic-shelf-intro p{font-family:"Bebas Neue",sans-serif;letter-spacing:.08em;font-size:1.05rem}
+.comic-shelf-intro p span{display:inline-block;color:#ffd34a;font-size:.75rem;letter-spacing:.18em;margin-top:7px}
+.comic-book-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:end;padding:20px 4px 28px;perspective:1200px;position:relative}
+.comic-book-shelf:after{content:"";position:absolute;left:0;right:0;bottom:7px;height:10px;background:linear-gradient(180deg,#161c27,#05070b);border-top:2px solid rgba(255,211,74,.35);box-shadow:0 7px 0 #020307,0 12px 25px rgba(0,0,0,.65)}
+.comic-book{height:390px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:25px 20px 20px;overflow:hidden;text-decoration:none;color:#f7f3e8;background:#101522;border:2px solid rgba(255,255,255,.18);border-radius:3px 9px 9px 3px;box-shadow:10px 12px 0 rgba(0,0,0,.45),inset 12px 0 0 rgba(0,0,0,.16),inset -3px 0 0 rgba(255,255,255,.08);transform:rotate(var(--book-tilt));transform-origin:bottom center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,filter .35s ease}
+.comic-book:nth-child(2){--book-tilt:1deg}.comic-book:nth-child(3){--book-tilt:-.7deg}.comic-book:nth-child(4){--book-tilt:1.3deg}.comic-book:nth-child(5){--book-tilt:-1.1deg}
+.comic-book:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 7px,rgba(255,255,255,.025) 8px 9px);pointer-events:none}
+.comic-book:after{content:"";position:absolute;top:0;left:16px;bottom:0;width:3px;background:rgba(255,255,255,.1);box-shadow:2px 0 0 rgba(0,0,0,.35);pointer-events:none}
+.comic-book:hover{transform:translateY(-20px) rotate(0deg) rotateY(-6deg);box-shadow:15px 25px 0 rgba(0,0,0,.5),0 0 30px rgba(0,234,255,.18);filter:brightness(1.08);z-index:5}
+.book-glow{position:absolute;width:170px;height:170px;top:25px;right:-45px;border-radius:50%;background:rgba(0,234,255,.16);filter:blur(35px)}
+.book-number{position:absolute;top:16px;right:17px;font-family:"Bebas Neue",sans-serif;font-size:.85rem;letter-spacing:.15em;opacity:.65}
+.book-label{position:absolute;top:52px;left:24px;font-family:"Bebas Neue",sans-serif;font-size:2.15rem;line-height:.84;letter-spacing:.03em;text-shadow:3px 3px 0 rgba(0,0,0,.65);transform:rotate(-3deg)}
+.comic-book strong{font-family:"Bebas Neue",sans-serif;font-size:2.45rem;line-height:.85;letter-spacing:.04em;text-shadow:3px 3px 0 rgba(0,0,0,.65)}
+.comic-book small{margin-top:8px;font-size:.66rem;letter-spacing:.15em;opacity:.7}
+.comic-book i{margin-top:18px;font-style:normal;font-family:"Bebas Neue",sans-serif;letter-spacing:.1em;font-size:.72rem;border-top:1px solid rgba(255,255,255,.2);padding-top:10px}
+.book-posters{--book-tilt:-1.5deg;background:linear-gradient(145deg,#2b0d18,#0b0e18 70%,#090c13);border-color:rgba(255,211,74,.55)}
+.book-posters .book-glow{background:rgba(255,211,74,.22)}
+.book-reels{background:linear-gradient(145deg,#081e2d,#080d16 70%,#06090f);border-color:rgba(0,234,255,.5)}
+.book-reels .book-glow{background:rgba(0,234,255,.2)}
+.book-motion{background:linear-gradient(145deg,#20104a,#0b0d18 70%,#080a11);border-color:rgba(139,92,255,.55)}
+.book-motion .book-glow{background:rgba(139,92,255,.2)}
+.book-design{background:linear-gradient(145deg,#2a1908,#101019 70%,#090b12);border-color:rgba(243,184,63,.55)}
+.book-design .book-glow{background:rgba(243,184,63,.2)}
+.book-theatre{background:linear-gradient(145deg,#280b10,#100b12 70%,#080a10);border-color:rgba(255,32,53,.55)}
+.book-theatre .book-glow{background:rgba(255,32,53,.18)}
+@media(max-width:1050px){.comic-book-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}.comic-book{height:360px}}
+@media(max-width:700px){.comic-book-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.comic-book{height:310px;padding:20px 16px 16px}.book-label{font-size:1.7rem;left:19px}.comic-book strong{font-size:2rem}.comic-book i{font-size:.65rem;margin-top:12px}}
+@media(max-width:480px){.comic-book-shelf{grid-template-columns:1fr 1fr}.comic-book{height:285px}.book-label{font-size:1.5rem}.comic-book strong{font-size:1.7rem}}
+@media(prefers-reduced-motion:reduce){.comic-book{transition:none!important}}
