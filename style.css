@@ -757,3 +757,6 @@ body::after {
 @media(max-width:700px){.comic-book-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.comic-book{height:310px;padding:20px 16px 16px}.book-label{font-size:1.7rem;left:19px}.comic-book strong{font-size:2rem}.comic-book i{font-size:.65rem;margin-top:12px}}
 @media(max-width:480px){.comic-book-shelf{grid-template-columns:1fr 1fr}.comic-book{height:285px}.book-label{font-size:1.5rem}.comic-book strong{font-size:1.7rem}}
 @media(prefers-reduced-motion:reduce){.comic-book{transition:none!important}}
+
+/* ===== FACEBOOK REELS ===== */
+.reel-facebook{width:min(100%,420px);margin:0 auto;aspect-ratio:9/16;overflow:hidden;border:2px solid rgba(0,234,255,.55);background:#05070b;box-shadow:10px 10px 0 var(--comic-red),0 0 35px rgba(0,234,255,.12);position:relative}.reel-facebook iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}@media(max-width:700px){.reel-facebook{width:min(100%,360px);box-shadow:6px 6px 0 var(--comic-red)}}
