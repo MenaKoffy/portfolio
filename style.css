@@ -414,3 +414,256 @@ body::after {
     transform: translateY(-5px);
   }
 }
+/* =========================================================
+   CYBERPUNK COMIC — MOTION & NEON FX
+   ========================================================= */
+
+/* Smooth transforms */
+.hero-art,
+.hero-copy,
+.hero-hud,
+.side-panel,
+.stamp,
+.skill-card,
+.project-card,
+.reel-frame,
+.contact-panel,
+.comic-button {
+  will-change: transform;
+}
+
+/* =========================
+   GLITCH TITLE
+   ========================= */
+
+.hero-copy h1 {
+  position: relative;
+  text-shadow:
+    3px 0 rgba(0, 234, 255, 0.65),
+    -3px 0 rgba(255, 32, 53, 0.55);
+}
+
+.hero-copy h1.glitch-active {
+  animation: cyberGlitch 180ms steps(2, end);
+}
+
+@keyframes cyberGlitch {
+  0% {
+    transform: translate(0);
+    text-shadow:
+      3px 0 rgba(0, 234, 255, 0.65),
+      -3px 0 rgba(255, 32, 53, 0.55);
+  }
+
+  25% {
+    transform: translate(-4px, 2px);
+    text-shadow:
+      7px 0 #00eaff,
+      -7px 0 #ff2035;
+  }
+
+  50% {
+    transform: translate(4px, -2px);
+    text-shadow:
+      -5px 0 #00eaff,
+      5px 0 #ff2035;
+  }
+
+  75% {
+    transform: translate(-2px, 0);
+    text-shadow:
+      4px 0 #8b5cff,
+      -4px 0 #ff2035;
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+
+/* =========================
+   NEON HOVER
+   ========================= */
+
+.neon-hover {
+  filter:
+    drop-shadow(0 0 6px rgba(0, 234, 255, 0.45))
+    drop-shadow(0 0 18px rgba(0, 234, 255, 0.25));
+}
+
+.brand.neon-hover {
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 16px #00eaff,
+    0 0 30px rgba(0, 234, 255, 0.65);
+}
+
+.comic-button {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.comic-button.neon-hover {
+  box-shadow:
+    0 0 8px rgba(0, 234, 255, 0.7),
+    0 0 22px rgba(0, 234, 255, 0.45),
+    inset 0 0 15px rgba(0, 234, 255, 0.12);
+}
+
+
+/* =========================
+   SKILLS / PROJECTS
+   ========================= */
+
+.skill-card,
+.project-card,
+.reel-frame,
+.contact-panel {
+  transition:
+    transform 180ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.skill-card:hover,
+.project-card:hover {
+  border-color: rgba(0, 234, 255, 0.65);
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.18),
+    0 0 35px rgba(0, 234, 255, 0.08);
+}
+
+
+/* =========================
+   SCROLL REVEAL
+   ========================= */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(45px) scale(0.98);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* =========================
+   HERO HUD
+   ========================= */
+
+.hero-hud {
+  transition:
+    filter 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.hero-hud:hover {
+  filter:
+    drop-shadow(0 0 7px rgba(0, 234, 255, 0.45));
+}
+
+
+/* =========================
+   COMIC BUTTON ARROW
+   ========================= */
+
+.comic-button b {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.comic-button:hover b {
+  transform: translateX(6px);
+}
+
+
+/* =========================
+   SCROLL CUE
+   ========================= */
+
+.scroll-cue b {
+  display: inline-block;
+  animation:
+    scrollArrow 1.4s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+
+/* =========================
+   CYBERPUNK SCAN FLASH
+   ========================= */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      transparent 48%,
+      rgba(0, 234, 255, 0.035) 50%,
+      transparent 52%
+    );
+  background-size: 100% 9px;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+}
+
+
+/* =========================
+   MOBILE SAFETY
+   ========================= */
+
+@media (max-width: 700px) {
+  .hero-art {
+    transform: none !important;
+  }
+
+  .hero-copy,
+  .hero-hud,
+  .side-panel,
+  .stamp {
+    transform: none !important;
+  }
+
+  .skill-card,
+  .project-card,
+  .reel-frame,
+  .contact-panel {
+    transform: none !important;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
