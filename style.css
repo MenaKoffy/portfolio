@@ -731,7 +731,7 @@ body::after {
 .comic-shelf-intro p span{display:inline-block;color:#ffd34a;font-size:.75rem;letter-spacing:.18em;margin-top:7px}
 .comic-book-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:end;padding:20px 4px 28px;perspective:1200px;position:relative}
 .comic-book-shelf:after{content:"";position:absolute;left:0;right:0;bottom:7px;height:10px;background:linear-gradient(180deg,#161c27,#05070b);border-top:2px solid rgba(255,211,74,.35);box-shadow:0 7px 0 #020307,0 12px 25px rgba(0,0,0,.65)}
-.comic-book{height:390px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:25px 20px 20px;overflow:hidden;text-decoration:none;color:#f7f3e8;background-color:#101522;background-image:linear-gradient(180deg,rgba(5,8,15,.12) 0%,rgba(5,8,15,.38) 45%,rgba(5,8,15,.94) 100%),url("hero.png");background-size:cover;background-position:center top;border:2px solid rgba(255,255,255,.18);border-radius:3px 9px 9px 3px;box-shadow:10px 12px 0 rgba(0,0,0,.45),inset 12px 0 0 rgba(0,0,0,.16),inset -3px 0 0 rgba(255,255,255,.08);transform:rotate(var(--book-tilt));transform-origin:bottom center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,filter .35s ease}
+.comic-book{height:390px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:25px 20px 20px;overflow:hidden;text-decoration:none;color:#f7f3e8;background-color:#101522;background-image:linear-gradient(180deg,rgba(5,8,15,.05) 0%,rgba(5,8,15,.18) 45%,rgba(5,8,15,.94) 100%),var(--book-cover);background-size:cover;background-position:center top;border:2px solid rgba(255,255,255,.18);border-radius:3px 9px 9px 3px;box-shadow:10px 12px 0 rgba(0,0,0,.45),inset 12px 0 0 rgba(0,0,0,.16),inset -3px 0 0 rgba(255,255,255,.08);transform:rotate(var(--book-tilt));transform-origin:bottom center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,filter .35s ease}
 .comic-book:nth-child(2){--book-tilt:1deg}.comic-book:nth-child(3){--book-tilt:-.7deg}.comic-book:nth-child(4){--book-tilt:1.3deg}.comic-book:nth-child(5){--book-tilt:-1.1deg}
 .comic-book:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 7px,rgba(255,255,255,.025) 8px 9px);pointer-events:none}
 .comic-book:after{content:"";position:absolute;top:0;left:16px;bottom:0;width:3px;background:rgba(255,255,255,.1);box-shadow:2px 0 0 rgba(0,0,0,.35);pointer-events:none}
@@ -742,15 +742,15 @@ body::after {
 .comic-book strong{font-family:"Bebas Neue",sans-serif;font-size:2.45rem;line-height:.85;letter-spacing:.04em;text-shadow:3px 3px 0 rgba(0,0,0,.65)}
 .comic-book small{margin-top:8px;font-size:.66rem;letter-spacing:.15em;opacity:.7}
 .comic-book i{margin-top:18px;font-style:normal;font-family:"Bebas Neue",sans-serif;letter-spacing:.1em;font-size:.72rem;border-top:1px solid rgba(255,255,255,.2);padding-top:10px}
-.book-posters{--book-tilt:-1.5deg;background-color:#2b0d18;background-image:linear-gradient(180deg,rgba(90,35,0,.12),rgba(10,7,15,.92)),url("hero.png");background-position:center top;border-color:rgba(255,211,74,.55)}
+.book-posters{--book-tilt:-1.5deg;--book-cover:url("assets/covers/posters-cover.jpg");border-color:rgba(255,211,74,.55)}
 .book-posters .book-glow{background:rgba(255,211,74,.22)}
-.book-reels{background-color:#081e2d;background-image:linear-gradient(180deg,rgba(0,75,100,.12),rgba(5,9,16,.92)),url("hero.png");background-position:48% top;border-color:rgba(0,234,255,.5)}
+.book-reels{--book-cover:url("assets/covers/reels-cover.jpg");border-color:rgba(0,234,255,.5)}
 .book-reels .book-glow{background:rgba(0,234,255,.2)}
-.book-motion{background-color:#20104a;background-image:linear-gradient(180deg,rgba(65,20,120,.14),rgba(8,7,17,.92)),url("hero.png");background-position:52% top;border-color:rgba(139,92,255,.55)}
+.book-motion{--book-cover:url("assets/covers/motion-cover.jpg");border-color:rgba(139,92,255,.55)}
 .book-motion .book-glow{background:rgba(139,92,255,.2)}
-.book-design{background-color:#2a1908;background-image:linear-gradient(180deg,rgba(120,70,5,.14),rgba(12,9,14,.92)),url("hero.png");background-position:50% top;border-color:rgba(243,184,63,.55)}
+.book-design{--book-cover:url("assets/covers/design-cover.jpg");border-color:rgba(243,184,63,.55)}
 .book-design .book-glow{background:rgba(243,184,63,.2)}
-.book-theatre{background-color:#280b10;background-image:linear-gradient(180deg,rgba(110,10,25,.14),rgba(12,7,13,.92)),url("hero.png");background-position:50% top;border-color:rgba(255,32,53,.55)}
+.book-theatre{--book-cover:url("assets/covers/theatre-cover.jpg");border-color:rgba(255,32,53,.55)}
 .book-theatre .book-glow{background:rgba(255,32,53,.18)}
 @media(max-width:1050px){.comic-book-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}.comic-book{height:360px}}
 @media(max-width:700px){.comic-book-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.comic-book{height:310px;padding:20px 16px 16px}.book-label{font-size:1.7rem;left:19px}.comic-book strong{font-size:2rem}.comic-book i{font-size:.65rem;margin-top:12px}}
