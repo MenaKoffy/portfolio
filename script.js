@@ -35,3 +35,224 @@ const menu = document.querySelector('.menu');
 menu?.addEventListener('click', () => {
   document.querySelector('.nav')?.classList.toggle('mobile-open');
 });
+/* =========================================================
+   CYBERPUNK COMIC — INTERACTIVE UPGRADE
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduceMotion) return;
+
+  const hero = document.querySelector(".hero");
+  const heroArt = document.querySelector(".hero-art");
+  const heroCopy = document.querySelector(".hero-copy");
+  const heroHud = document.querySelector(".hero-hud");
+  const panels = document.querySelectorAll(".hero .side-panel");
+  const stamp = document.querySelector(".hero .stamp");
+
+  /* =========================
+     1. HERO MOUSE PARALLAX
+     ========================= */
+
+  if (hero) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    hero.addEventListener("mousemove", (e) => {
+      const rect = hero.getBoundingClientRect();
+
+      mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+      mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+    });
+
+    hero.addEventListener("mouseleave", () => {
+      mouseX = 0;
+      mouseY = 0;
+    });
+
+    const animateParallax = () => {
+      currentX += (mouseX - currentX) * 0.08;
+      currentY += (mouseY - currentY) * 0.08;
+
+      if (heroArt) {
+        heroArt.style.transform =
+          `translate3d(${currentX * -14}px, ${currentY * -10}px, 0) scale(1.025)`;
+      }
+
+      if (heroCopy) {
+        heroCopy.style.transform =
+          `translate3d(${currentX * 18}px, ${currentY * 12}px, 0)`;
+      }
+
+      if (heroHud) {
+        heroHud.style.transform =
+          `translate3d(${currentX * -24}px, ${currentY * -16}px, 0)`;
+      }
+
+      if (panels.length) {
+        panels.forEach((panel, index) => {
+          const speed = 10 + index * 7;
+
+          panel.style.transform =
+            `translate3d(${currentX * speed}px, ${currentY * speed}px, 0)`;
+        });
+      }
+
+      if (stamp) {
+        stamp.style.transform =
+          `translate3d(${currentX * -30}px, ${currentY * -20}px, 0) rotate(-8deg)`;
+      }
+
+      requestAnimationFrame(animateParallax);
+    };
+
+    animateParallax();
+  }
+
+
+  /* =========================
+     2. PROJECT / SKILL TILT
+     ========================= */
+
+  const tiltElements = document.querySelectorAll(
+    ".skill-card, .project-card, .reel-frame, .contact-panel"
+  );
+
+  tiltElements.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const rotateX = (0.5 - y) * 6;
+      const rotateY = (x - 0.5) * 6;
+
+      card.style.transform =
+        `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+
+
+  /* =========================
+     3. MAGNETIC PORTFOLIO BUTTON
+     ========================= */
+
+  const buttons = document.querySelectorAll(".comic-button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("mousemove", (e) => {
+      const rect = button.getBoundingClientRect();
+
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      button.style.transform =
+        `translate(${x * 0.12}px, ${y * 0.12}px)`;
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.style.transform = "";
+    });
+  });
+
+
+  /* =========================
+     4. RANDOM GLITCH EFFECT
+     ========================= */
+
+  const title = document.querySelector(".hero-copy h1");
+
+  if (title) {
+    setInterval(() => {
+      title.classList.add("glitch-active");
+
+      setTimeout(() => {
+        title.classList.remove("glitch-active");
+      }, 180);
+    }, 3200);
+  }
+
+
+  /* =========================
+     5. SCROLL REVEAL
+     ========================= */
+
+  const revealItems = document.querySelectorAll(
+    ".chapter, .skill-card, .project-card, .reel-frame, .contact-panel"
+  );
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+  revealItems.forEach((item) => {
+    item.classList.add("reveal-item");
+    revealObserver.observe(item);
+  });
+
+
+  /* =========================
+     6. ACTIVE NAVIGATION
+     ========================= */
+
+  const navLinks = document.querySelectorAll(".nav a");
+  const sections = document.querySelectorAll("main section[id]");
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${entry.target.id}`
+            );
+          });
+        }
+      });
+    },
+    {
+      rootMargin: "-35% 0px -55% 0px"
+    }
+  );
+
+  sections.forEach((section) => navObserver.observe(section));
+
+
+  /* =========================
+     7. NEON HOVER SOUNDLESS PULSE
+     ========================= */
+
+  const neonItems = document.querySelectorAll(
+    ".brand, .comic-button, .skill-card, .project-card, .hero-hud"
+  );
+
+  neonItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      item.classList.add("neon-hover");
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.classList.remove("neon-hover");
+    });
+  });
+
+});
