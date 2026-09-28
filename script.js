@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================= */
 
   const revealItems = document.querySelectorAll(
-    ".chapter, .skill-card, .project-card, .reel-frame, .contact-panel"
+    ".skill-card, .project-card, .reel-frame, .contact-panel"
   );
 
   const revealObserver = new IntersectionObserver(
