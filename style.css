@@ -667,3 +667,20 @@ body::after {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== POSTER PROJECT ARCHIVE ===== */
+.poster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:34px}
+.poster-card{position:relative;transform:rotate(-.7deg);transition:transform .35s ease,filter .35s ease;min-width:0}
+.poster-card:nth-child(2n){transform:rotate(.8deg)}.poster-card:nth-child(3n){transform:rotate(-.35deg)}
+.poster-card:hover{transform:translateY(-10px) rotate(0deg);filter:drop-shadow(0 0 18px rgba(255,211,74,.22));z-index:3}
+.poster-frame{position:relative;overflow:hidden;background:#090b12;border:2px solid rgba(255,211,74,.55);box-shadow:8px 8px 0 rgba(255,211,74,.12),-5px -5px 0 rgba(0,229,255,.08);aspect-ratio:3/4}
+.poster-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1);filter:saturate(.96) contrast(1.04)}
+.poster-card:hover .poster-frame img{transform:scale(1.045)}
+.poster-scan{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 0%,transparent 47%,rgba(255,211,74,.16) 50%,transparent 53%,transparent 100%);transform:translateY(-110%);transition:transform .7s ease}
+.poster-card:hover .poster-scan{transform:translateY(110%)}
+.poster-card .project-meta{padding:16px 4px 8px}.poster-card .project-meta span{font-family:"Bebas Neue",sans-serif;letter-spacing:.16em;font-size:.82rem;opacity:.7}
+.poster-card .project-meta h3{margin:5px 0 4px;font-size:1.45rem}.poster-card .project-meta p{margin:0;opacity:.68;letter-spacing:.08em;font-size:.72rem}
+.view-project{display:inline-flex;gap:8px;align-items:center;margin-top:12px;font-family:"Bebas Neue",sans-serif;letter-spacing:.12em;font-size:.82rem;color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,211,74,.55);padding-bottom:3px;transition:gap .25s ease,color .25s ease}.view-project:hover{gap:14px;color:#ffd34a}
+@media (max-width:1000px){.poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}}
+@media (max-width:700px){.poster-grid{grid-template-columns:1fr;gap:30px}.poster-card,.poster-card:nth-child(2n),.poster-card:nth-child(3n){transform:none}.poster-card:hover{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.poster-card,.poster-frame img,.poster-scan,.view-project{transition:none!important}}
