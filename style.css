@@ -1236,3 +1236,7 @@ img[data-lightbox]{cursor:zoom-in}
   .lightbox-prev{left:8px}.lightbox-next{right:8px}
   .lightbox-close{top:10px;right:10px;width:40px;height:40px}
 }
+
+
+/* ===== IMAGE PROTECTION ===== */
+img[data-lightbox]{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
