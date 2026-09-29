@@ -1240,3 +1240,22 @@ img[data-lightbox]{cursor:zoom-in}
 
 /* ===== IMAGE PROTECTION ===== */
 img[data-lightbox]{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
+
+/* ===== ABOUT PORTRAIT IMAGE ===== */
+.portrait-panel{isolation:isolate}
+.about-portrait-image{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  opacity:.78;filter:saturate(.9) contrast(1.08) brightness(.82);
+  z-index:0;
+}
+.portrait-panel .halftone{z-index:1}
+.portrait-panel:before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(5,8,14,.08) 20%,rgba(5,8,14,.72) 100%);
+  pointer-events:none;
+}
+.portrait-panel .panel-number,.portrait-panel p{z-index:3}
+@media(max-width:700px){
+  .about-portrait-image{object-position:center top}
+}
