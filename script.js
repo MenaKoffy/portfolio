@@ -256,3 +256,67 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+/* =========================================================
+   GLOBAL IMAGE LIGHTBOX — ALL PORTFOLIO PAGES
+   ========================================================= */
+(function initGlobalLightbox(){
+  function setup(){
+    const images=[...document.querySelectorAll('img')].filter(img=>{
+      if(!img.src) return false;
+      if(img.closest('.lightbox-overlay')) return false;
+      if(img.closest('.brand')) return false;
+      img.dataset.lightbox='true';
+      return true;
+    });
+    if(!images.length) return;
+
+    const overlay=document.createElement('div');
+    overlay.className='lightbox-overlay';
+    overlay.innerHTML=
+      '<button class="lightbox-close" aria-label="Close image">×</button>'+
+      '<button class="lightbox-prev" aria-label="Previous image">‹</button>'+
+      '<div class="lightbox-image-wrap"><img class="lightbox-image" alt=""></div>'+
+      '<button class="lightbox-next" aria-label="Next image">›</button>'+
+      '<div class="lightbox-counter"></div>';
+    document.body.appendChild(overlay);
+
+    const viewer=overlay.querySelector('.lightbox-image');
+    const counter=overlay.querySelector('.lightbox-counter');
+    let current=0;
+
+    function open(index){
+      current=(index+images.length)%images.length;
+      const source=images[current];
+      viewer.src=source.currentSrc||source.src;
+      viewer.alt=source.alt||'Portfolio image';
+      counter.textContent=String(current+1).padStart(2,'0')+' / '+String(images.length).padStart(2,'0');
+      overlay.classList.add('is-open');
+      document.body.classList.add('lightbox-open');
+    }
+    function close(){
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('lightbox-open');
+    }
+    function move(step){open(current+step)}
+
+    images.forEach((img,index)=>img.addEventListener('click',event=>{
+      event.preventDefault();
+      event.stopPropagation();
+      open(index);
+    }));
+    overlay.querySelector('.lightbox-close').addEventListener('click',close);
+    overlay.querySelector('.lightbox-prev').addEventListener('click',()=>move(-1));
+    overlay.querySelector('.lightbox-next').addEventListener('click',()=>move(1));
+    overlay.addEventListener('click',event=>{if(event.target===overlay) close()});
+    document.addEventListener('keydown',event=>{
+      if(!overlay.classList.contains('is-open')) return;
+      if(event.key==='Escape') close();
+      if(event.key==='ArrowLeft') move(-1);
+      if(event.key==='ArrowRight') move(1);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setup);
+  else setup();
+})();
