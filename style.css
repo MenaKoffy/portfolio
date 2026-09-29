@@ -846,3 +846,17 @@ body::after {
     width:min(340px,calc(100vw - 32px));
   }
 }
+
+
+/* ===== FACEBOOK NATIVE SIZE ALIGNMENT ===== */
+.motion-video{
+  width:min(560px,calc(100vw - 32px));
+  aspect-ratio:560/314;
+  margin:0 auto 42px;
+}
+.motion-video.motion-vertical{
+  width:min(269px,calc(100vw - 32px));
+  aspect-ratio:269/476;
+  margin-left:auto;
+  margin-right:auto;
+}
