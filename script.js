@@ -267,6 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if(!img.src) return false;
       if(img.closest('.lightbox-overlay')) return false;
       if(img.closest('.brand')) return false;
+      // Book covers and linked images should keep their normal navigation behavior.
+      if(img.closest('a[href]')) return false;
       img.dataset.lightbox='true';
       return true;
     });
