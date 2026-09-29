@@ -1099,3 +1099,29 @@ body::after {
 @media (max-width:560px){
   .design-draw-grid{grid-template-columns:1fr;gap:20px}
 }
+
+
+/* ===== DESIGN — CHAPTER BOOKS ===== */
+.design-books-page .story-heading{text-align:center;max-width:900px;margin:0 auto 50px}
+.design-book-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1400px;margin:0 auto}
+.design-book{position:relative;min-height:560px;padding:18px;text-decoration:none;color:#fff;overflow:hidden;border:1px solid rgba(0,229,255,.3);background:linear-gradient(145deg,#111722,#07090d 72%);box-shadow:10px 10px 0 rgba(0,229,255,.08),0 18px 50px rgba(0,0,0,.35);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.design-book:hover{transform:translateY(-10px) rotate(-1deg);border-color:#00e5ff;box-shadow:14px 16px 0 rgba(0,229,255,.12),0 25px 60px rgba(0,0,0,.5)}
+.design-book-no{position:absolute;top:14px;right:16px;font:32px "Bebas Neue",sans-serif;color:#00e5ff;z-index:3}
+.design-book-tag{font:11px Inter,sans-serif;letter-spacing:.22em;color:#f5d547}
+.design-book-art{height:220px;margin:25px 5px 22px;position:relative;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);background:radial-gradient(circle at 50% 45%,rgba(0,229,255,.2),transparent 55%)}
+.design-book-art:before{content:"";position:absolute;width:115px;height:150px;border:2px solid #00e5ff;transform:rotate(8deg);box-shadow:0 0 30px rgba(0,229,255,.25)}
+.design-book-art:after{content:"";position:absolute;width:85px;height:85px;border:2px solid #f5d547;border-radius:50%;transform:translate(35px,-25px);box-shadow:0 0 25px rgba(245,213,71,.2)}
+.design-book-02 .design-book-art:before{border-color:#f5d547;transform:rotate(-7deg)}
+.design-book-02 .design-book-art:after{border-radius:0;transform:translate(-35px,20px) rotate(45deg)}
+.design-book-03 .design-book-art:before{border-radius:50%;transform:rotate(0);border-style:dashed}
+.design-book-03 .design-book-art:after{width:130px;height:60px;border-radius:50%;transform:rotate(-30deg);border-color:#ff3b30}
+.design-book-04 .design-book-art:before{border-color:#ff3b30;transform:skew(-12deg)}
+.design-book-04 .design-book-art:after{border-color:#00e5ff;transform:translate(35px,15px) rotate(30deg)}
+.design-book-copy strong{display:block;font:48px "Bebas Neue",sans-serif;letter-spacing:.04em;line-height:.9}
+.design-book-copy em{display:block;margin:9px 0 14px;color:#00e5ff;font:16px "Bebas Neue",sans-serif;letter-spacing:.12em;font-style:normal}
+.design-book-copy small{display:block;min-height:58px;color:rgba(255,255,255,.58);font-size:12px;line-height:1.55}
+.design-book-copy label{display:block;margin-top:18px;color:#f5d547;font:14px "Bebas Neue",sans-serif;letter-spacing:.12em}
+.design-book-enter{margin-top:22px;padding:11px 12px;border-top:1px solid rgba(0,229,255,.25);color:#fff;font:13px "Bebas Neue",sans-serif;letter-spacing:.14em}
+.design-back-link{display:inline-block;margin-bottom:18px;color:#00e5ff;text-decoration:none;font:13px "Bebas Neue",sans-serif;letter-spacing:.12em}
+@media(max-width:1100px){.design-book-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.design-book{min-height:520px}}
+@media(max-width:600px){.design-book-grid{grid-template-columns:1fr}.design-book{min-height:500px}}
