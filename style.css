@@ -762,3 +762,32 @@ body::after {
 .reel-facebook{width:min(100%,420px);margin:0 auto;aspect-ratio:9/16;min-height:476px;overflow:hidden;border:2px solid rgba(0,234,255,.55);background:#05070b;box-shadow:10px 10px 0 var(--comic-red),0 0 35px rgba(0,234,255,.12);position:relative}.reel-facebook iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}@media(max-width:700px){.reel-facebook{width:min(100%,360px);box-shadow:6px 6px 0 var(--comic-red)}}
 
 .reel-fallback{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:3;padding:8px 12px;background:rgba(5,7,11,.9);border:1px solid rgba(0,234,255,.6);color:#00eaff;font:700 10px Inter,sans-serif;letter-spacing:.08em;white-space:nowrap}
+
+
+/* ===== MOTION GRAPHICS PROJECTS ===== */
+.motion-video{
+  width:min(100%,900px);
+  margin:0 auto;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border:2px solid rgba(0,234,255,.55);
+  background:#05070b;
+  box-shadow:10px 10px 0 var(--comic-red),0 0 35px rgba(0,234,255,.12);
+  position:relative
+}
+.motion-video iframe{
+  position:absolute;inset:0;width:100%;height:100%;
+  border:0;display:block
+}
+.motion-fallback{
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  z-index:3;padding:8px 12px;background:rgba(5,7,11,.9);
+  border:1px solid rgba(0,234,255,.6);color:#00eaff;
+  font:700 10px Inter,sans-serif;letter-spacing:.08em;white-space:nowrap
+}
+@media(max-width:700px){
+  .motion-video{
+    width:100%;
+    box-shadow:6px 6px 0 var(--comic-red)
+  }
+}
